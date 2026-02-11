@@ -23,7 +23,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 body {
@@ -532,7 +532,7 @@ footer {
   background-color: var(--color-background);
   /* margin-top: 6rem; */
   position: relative;
-  z-index: 999;
+  /* z-index: 999; */
 }
 
 .footer-content {
@@ -842,5 +842,6 @@ footer {
     line-height: 1.7;
   }
 }
+
 
 
