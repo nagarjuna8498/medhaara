@@ -50,6 +50,29 @@ main {
   flex: 1;
 }
 
+#bgimage {
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/12585.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* nice premium effect */
+  position: relative;
+}
+
+/* Overlay for readability */
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(255, 255, 255, 0.85);white overlay */
+  z-index: 0;
+}
+
+/* Ensure content stays above overlay */
+main > * {
+  position: relative;
+  z-index: 1;
+}
 /* Header */
 header {
   background-color: var(--color-background);
@@ -81,6 +104,37 @@ header {
 
 .logo:hover {
   text-decoration: none;
+}
+
+/* ================================
+   HOME – BRANDS LOGOS ONLY
+================================ */
+
+.brands-only {
+  padding: 80px 0 120px;
+}
+
+.brands-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.brands-logos img {
+  max-width: 200px;
+  height: auto;
+  opacity: 0.9;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  border-radius: 20px;
+}
+
+.brands-logos img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
 /* Navigation */
@@ -342,6 +396,21 @@ section {
   padding: 3rem 0;
   display: grid;
   gap: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.brands-logos img,
+.brand-name-container img {
+  width: 220px;
+  max-width: 100%;
+  display: block;
+}
+
+.brand-row-description {
+  flex: 1;
 }
 
 @media (min-width: 768px) {
@@ -460,13 +529,13 @@ section {
 footer {
   border-top: 1px solid #e5e7eb;
   background-color: var(--color-background);
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
 }
 
 .footer-content {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .footer-nav {
@@ -671,5 +740,102 @@ footer {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0.5rem 0;
+  }
+}
+/* Anchors the image to the top-right of the section */
+.founder-image-wrapper {
+  position: absolute;
+  top: 0;
+  right: -280px; /* Adjust this value based on your page width to fit the red box */
+  width: 250px; /* Width of the image */
+}
+
+.founder-img {
+  width: 70%;
+  height: auto;
+  display: block;
+  /* Optional: adds a professional look */
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/* On smaller screens, move the image above the text so it doesn't overlap */
+@media (max-width: 1100px) {
+  .founder-image-wrapper {
+    position: static;
+    width: 200px;
+    margin: 0 auto 30px auto;
+  }
+  .section-container.narrow-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ===== BRANDS PAGE ===== */
+
+.brands-container {
+  max-width: 1200px;
+}
+
+/* Each brand row */
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin: 70px 0;
+}
+
+/* Logo */
+.brand-logo {
+  flex-shrink: 0;
+}
+
+.brand-logo img {
+  width: 240px;
+  max-width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Content */
+.brand-content {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #222;
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width: 992px) {
+  .brand-item {
+    gap: 40px;
+  }
+
+  .brand-logo img {
+    width: 200px;
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .brand-item {
+    flex-direction: column;
+    text-align: justify;
+    gap: 25px;
+    margin: 50px 0;
+  }
+
+  .brand-logo img {
+    width: 180px;
+    margin: 0 auto;
+  }
+
+  .brand-content {
+    font-size: 15px;
+    line-height: 1.7;
   }
 }
