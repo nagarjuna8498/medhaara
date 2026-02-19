@@ -19,11 +19,82 @@
   box-sizing: border-box;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+header {
+  height: 72px; /* adjust if needed */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* 1. Target the logo image specifically */
+.logo img {
+  /* Increase height to your desired size */
+  height: 55px !important;
+  width: auto !important;
+
+  /* These two lines allow the logo to grow BIGGER than the header 
+       without pushing the 'Home', 'About', etc. links around */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Ensure it stays on top of other elements */
+  z-index: 10;
+  margin-top: 10px;
+}
+
+/* 2. Ensure the parent anchor tag has a relative position for the absolute image */
+.logo {
+  position: relative;
+  display: inline-block;
+  width: 250px; /* Give the larger logo enough horizontal 'room' */
+  height: 100%; /* Match the header height */
+}
+
+/* 3. Mobile adjustments (Optional but recommended) */
+@media (max-width: 768px) {
+  .logo img {
+    height: 60px; /* Keeps the logo from being too huge on phones */
+  }
+}
 html,
 body {
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-x: hidden; /* IMPORTANT */
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  overflow-x: auto;
+}
+
+/* Hide scrollbar (Chrome / Edge / Safari) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar (Firefox) */
+body {
+  scrollbar-width: none;
 }
 
 body {
@@ -749,8 +820,8 @@ footer {
 .founder-image-wrapper {
   position: absolute;
   top: 0;
-  right: -280px; /* Adjust this value based on your page width to fit the red box */
-  width: 250px; /* Width of the image */
+  left: -220px; /* Adjust this value based on your page width to fit the red box */
+  width: 280px; /* Width of the image */
 }
 
 .founder-img {
@@ -842,7 +913,3 @@ footer {
     line-height: 1.7;
   }
 }
-
-
-
-
